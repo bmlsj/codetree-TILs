@@ -31,7 +31,7 @@ public class Main {
 			int r = Integer.parseInt(split[0]) - 1;
 			int c = Integer.parseInt(split[0]) - 1;
 
-			if (!visited[r][c]) {
+			if (!visited[r][c] && map[r][c] == 0) {
 				cnt = 1;
 				bfs(r, c);
 
