@@ -29,7 +29,7 @@ public class Main {
 		for (int i = 0; i < m; i++) {
 			split = in.readLine().split(" ");
 			int r = Integer.parseInt(split[0]) - 1;
-			int c = Integer.parseInt(split[0]) - 1;
+			int c = Integer.parseInt(split[1]) - 1;
 
 			if (!visited[r][c] && map[r][c] == 0) {
 				cnt = 1;
