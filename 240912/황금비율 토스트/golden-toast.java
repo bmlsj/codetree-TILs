@@ -4,9 +4,6 @@ import java.util.*;
 
 public class Main {
 
-	private static int[][] map;
-	private static boolean[][] visited;
-
 	public static void main(String[] args) throws Exception {
 
 		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
@@ -32,8 +29,10 @@ public class Main {
 					it.next();
 				}
 			} else if (comments.equals("D")) {
-				it.next();
-				it.remove();
+				if (it.hasNext()) {
+			        it.next();
+			        it.remove();
+			    }
 			} else if (comments.equals("P")) {
 				it.add(st.nextToken());
 			}
