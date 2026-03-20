@@ -1,12 +1,8 @@
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
 
-
 public class Main {
-
-	static int[][] map;
 
 	public static void main(String[] args) throws Exception {
 
@@ -15,11 +11,9 @@ public class Main {
 		int n = Integer.parseInt(split[0]);
 		int t = Integer.parseInt(split[1]);
 
-		// map = new int[n][n];
-
 		split = br.readLine().split(" ");
-		int r = Integer.parseInt(split[0]);
-		int c = Integer.parseInt(split[1]);
+		int r = Integer.parseInt(split[0]) -1;
+		int c = Integer.parseInt(split[1]) -1;
 		int dir = makeDir(split[2].charAt(0));
 
 		while (t > 0) {
@@ -28,7 +22,7 @@ public class Main {
 			int nx = r + dx[dir];
 			int ny = c + dy[dir];
 
-			if (nx < 1 || ny < 1 || nx >= n || ny >= n) {
+			if (nx < 0 || ny < 0 || nx >= n || ny >= n) {
 				dir = 3 - dir;
 				continue;
 			}
@@ -36,7 +30,7 @@ public class Main {
 			c = ny;
 		}
 
-		System.out.println((r) + " " + (c));
+		System.out.println((r + 1) + " " + (c + 1));
 
 	}
 
