@@ -16,11 +16,11 @@ public class Main {
            
             switch(split[0]) {
                 case "add" : {
-                    x = x | (1 << num);
+                    x = x + (1 << num);
                     break;
                 }
                 case "delete" : {
-                    x = x & ~(1 << num);
+                    x = x - (1 << num);
                     break;
                 }
 
