@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.*;
@@ -51,23 +50,16 @@ public class Main {
 			startPoints.add(new Pair(r, c));
 		}
 
-		stoneIdx = new ArrayList<Integer>();
-		combinations(stones, 0, m);
+		combinations(stones, 0, m, 0);
 
 		System.out.println(answer);
 	}
 
 	static int[] dx = { -1, 1, 0, 0 };
 	static int[] dy = { 0, 0, -1, 1 };
-	static List<Integer> stoneIdx;
 
-	static void combinations(List<Pair> stones, int start, int M) {
-		if (M == stoneIdx.size()) {
-
-			for (int idx : stoneIdx) {
-				Pair pair = stones.get(idx);
-				map[pair.x][pair.y] = 0;
-			}
+	static void combinations(List<Pair> stones, int start, int M, int depth) {
+		if (M == depth) {
 
 			visited = new int[n][n];
 			bfs(startPoints);
@@ -82,19 +74,14 @@ public class Main {
 
 			answer = Math.max(answer, count);
 
-			for (int idx : stoneIdx) {
-				Pair pair = stones.get(idx);
-				map[pair.x][pair.y] = 1;
-			}
-
 			return;
 		}
 
 		for (int i = start; i < stones.size(); i++) {
-
-			stoneIdx.add(i);
-			combinations(stones, i + 1, M);
-			stoneIdx.remove(stoneIdx.size() - 1);
+			Pair pair = stones.get(i);
+			map[pair.x][pair.y] = 0;
+			combinations(stones, i + 1, M, depth + 1);
+			map[pair.x][pair.y] = 1;
 
 		}
 	}
